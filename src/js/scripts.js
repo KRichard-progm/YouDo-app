@@ -1,28 +1,10 @@
-var myYoudolist = document.getElementsByTagName("LI");
-var i;
-for (i = 0; i < myYoudolist.length; i++) {
-    var span = document.createElement("SPAN");
-    var txt = document.createTextNode("");
-    span.className = "close";
-    span.appendChild(txt);
-    myYoudolist[i].appendChild(span);
-}
-
-
-var close = document.getElementsByClassName("close");
-var f;
-for (f = 0; f < close.length; f++) {
-    close[i].onclick = function () {
-        var div = this.parentElement;
-        div.style.display = "none";
-    }
-}
 
 
 function newElement() {
-    var li = document.createElement("li");
-    var inputValue = document.getElementById("myInput").value;
-    var t = document.createTextNode(inputValue);
+
+    let li = document.createElement("li");
+    let inputValue = document.getElementById("myInput").value;
+    let t = document.createTextNode(inputValue);
     li.appendChild(t);
     if (inputValue === '') {
         alert("You must write something!");
@@ -31,29 +13,75 @@ function newElement() {
     }
     document.getElementById("myInput").value = "";
 
-    var span = document.createElement("button");
-    var txt = document.createTextNode("Delete");
+    let span = document.createElement("button");
+    let txt = document.createTextNode("Delete");
     span.className = "close";
     span.appendChild(txt);
     li.appendChild(span);
 
-    for (i = 0; i < close.length; i++) {
+    for ( i = 0; i < close.length; i++) {
         close[i].onclick = function () {
-            var div = this.parentElement;
-            div.style.display = "none";
+            let item = this.parentElement;
+            item.style.display = "none";
         }
     }
 }
 
+let myYouDoList = document.getElementsByTagName("li");
+let i;
+for (i = 0; i < myYouDoList.length; i++) {
+    let span = document.createElement("SPAN");
+    let txt = document.createTextNode("");
+    span.className = "close";
+    span.appendChild(txt);
+    myYouDoList[i].appendChild(span);
+}
+
+
+let close = document.getElementsByClassName("close");
+let x;
+for (x= 0; x < close.length; x++) {
+    close[i].onclick = function () {
+        const div = this.parentElement;
+        div.style.display = "none";
+    }
+}
+
 function checkChar() {
-    var myChar = document.getElementById('myInput');
+    let myChar = document.getElementById('myInput');
 
-    var goodColor = "#66cc66";
-    var badColor = "#ff6666";
+    let goodColor = "#66cc66";
+    let badColor = "#ff6666";
 
-    if (myChar.value.length > 6) {
+    if (myChar.value.length >= 6) {
         myChar.style.backgroundColor = goodColor;
+        document.getElementsByClassName("addBtnBtn").style.display = "none";
     } else {
-        myChar.style.backgroundColor= badColor;
+        myChar.style.backgroundColor = badColor;
+        document.getElementsByClassName("addBtnBtn").style.display = "block";
+    }
+}
+
+function saveAll() {
+
+    const myArrStr = JSON.stringify(myArr);
+    localStorage.setItem("myInput", str);
+
+    function getAll() {
+        let str = localStorage.getItem("myInput");
+        myArrSrt = JSON.parse(str);
+        if (!myInput) {
+            myInput = [];
+
+        }
+    }
+
+    getAll();
+}
+function getExtension(listId, taskId) {
+    let now = new Date();
+    let deadline = new Date(Date.UTC(now.getUTCFullYear(), now.getUTCMonth(), now.getUTCDate() + 7));
+    let newTask = {
+        due: Utilities.formatDate(deadline, "GMT", "yyyy-MM-dd'T'HH:mm:ss'Z'")
     }
 }
