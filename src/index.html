@@ -7,14 +7,28 @@
     <title>YouDo</title>
 
     <link rel="stylesheet" href="css/styles.css">
+    <style>
+        #header {
+            background-color: #f44336;
+            padding: 30px 40px;
+            color: white;
+            text-align: center;
+        }
+        .addBtn{
+            background-color: azure;
+        }
+    </style>
 </head>
 
 <body>
 
 <div id="header">
+    <form id="youDoList">
     <h2>You Do List</h2>
     <input type="text" id="myInput" placeholder="List" onkeyup="checkChar(); return false;">
-    <span onclick="newElement()" class="addBtn">Add</span>
+        <input type="button" value="add" <span onclick="newElement()"  class="addBtn"></span>
+
+    </form>
 </div>
 
 <ul id="myUL">
