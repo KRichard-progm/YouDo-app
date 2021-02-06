@@ -1,17 +1,28 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta name="description" content="The simple todo app"> 
-  
-  <title>YouDo</title>
-  
-  <link rel="stylesheet" href="css/styles.css">
+    <meta charset="utf-8">
+    <meta name="description" content="The simple todo app">
+
+    <title>YouDo</title>
+
+    <link rel="stylesheet" href="css/styles.css">
 </head>
 
 <body>
-  <!-- YOUR HTML -->
-  
-  <script src="js/scripts.js"></script>
+
+<div id="header">
+    <h2>You Do List</h2>
+    <input type="text" id="myInput" placeholder="List" onkeyup="checkChar(); return false;">
+    <span onclick="newElement()" class="addBtn">Add</span>
+</div>
+
+<ul id="myUL">
+    <li>Lista elemei</li>
+</ul>
+
+
+
+<script src="js/scripts.js"></script>
 </body>
 </html>
